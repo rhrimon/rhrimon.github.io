@@ -509,10 +509,18 @@ body.error-page a {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     #intro h1 {
-        font-size: 4.5rem;
-        margin-top: 20vh;
+        font-size: 5.5rem;
+        margin-top: 0;
         text-align: center;
         justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
     
     .values-item {
@@ -559,10 +567,18 @@ body.error-page a {
 
 @media (max-width: 480px) {
     #intro h1 {
-        font-size: 3.5rem;
+        font-size: 4.5rem;
+        margin-top: 0;
         text-align: center;
         justify-content: center;
+        align-items: center;
+        height: 100vh;
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
     
     .section {
