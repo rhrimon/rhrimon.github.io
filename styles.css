@@ -97,7 +97,6 @@ nav ul {
     align-items: center;
     height: 80vh;
     opacity: 0;
-    transition: opacity 0.8s ease-out;
 }
 
 #intro h1.visible {
@@ -106,6 +105,7 @@ nav ul {
 }
 
 #intro h1.fade-out {
+    opacity: 0;
     animation: fadeOut 1s ease forwards;
 }
 

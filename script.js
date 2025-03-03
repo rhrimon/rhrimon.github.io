@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nameIntro.classList.add('fade-out');
             setTimeout(() => {
                 console.log('Transitioning to tabbed content');
-                nameIntro.classList.remove('visible');
+                nameIntro.classList.remove('visible', 'fade-out');
                 nameIntro.classList.add('hidden');
                 tabbedIntro.classList.remove('hidden');
                 tabbedIntro.classList.add('visible');
