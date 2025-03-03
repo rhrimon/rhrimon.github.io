@@ -8,49 +8,33 @@ document.addEventListener('DOMContentLoaded', (): void => {
         behavior: ScrollBehavior;
     }
     
-    // Intro section animation - DIRECT APPROACH
+    // Intro section animation
     const nameIntro: HTMLElement | null = document.getElementById('name-intro');
     const tabbedIntro: HTMLElement | null = document.getElementById('tabbed-intro');
     
     console.log('Initial element states:');
-    console.log('nameIntro:', nameIntro?.style.display, nameIntro?.style.opacity);
-    console.log('tabbedIntro:', tabbedIntro?.style.display, tabbedIntro?.style.opacity);
+    console.log('nameIntro:', nameIntro);
+    console.log('tabbedIntro:', tabbedIntro);
     
-    // Force the animation to start immediately for debugging
     if (nameIntro && tabbedIntro) {
-        console.log('Setting up initial animation states');
+        console.log('Setting up animation sequence');
         
-        // Make sure the name is visible first
-        nameIntro.style.opacity = '1';
-        nameIntro.style.display = 'flex';
-        nameIntro.style.animation = 'fadeIn 1s ease forwards';
+        // Start with name intro visible
+        nameIntro.classList.add('visible');
         
-        console.log('nameIntro styles set:', 
-            'display:', nameIntro.style.display,
-            'opacity:', nameIntro.style.opacity,
-            'animation:', nameIntro.style.animation
-        );
-        
-        // Then set up the timeout for the fade out
+        // After 2 seconds, start the transition
         setTimeout(() => {
-            console.log('Starting fadeOut animation');
-            nameIntro.style.animation = 'fadeOut 1s ease forwards';
+            console.log('Starting fade transition');
+            nameIntro.classList.add('fade-out');
             
+            // After the fade out animation completes
             setTimeout(() => {
-                console.log('Showing tabbed content');
-                nameIntro.style.display = 'none';
+                console.log('Transitioning to tabbed content');
+                nameIntro.classList.remove('visible');
+                nameIntro.classList.add('hidden');
                 
-                // Force the tabbed content to be visible
-                tabbedIntro.style.display = 'flex';
-                tabbedIntro.style.opacity = '1';
                 tabbedIntro.classList.remove('hidden');
                 tabbedIntro.classList.add('visible');
-                
-                console.log('tabbedIntro styles set:', 
-                    'display:', tabbedIntro.style.display,
-                    'opacity:', tabbedIntro.style.opacity,
-                    'classes:', tabbedIntro.className
-                );
                 
                 // Initialize tab functionality
                 initTabs();
