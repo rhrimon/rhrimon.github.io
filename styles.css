@@ -97,26 +97,40 @@ nav ul {
     align-items: center;
     height: 80vh;
     opacity: 0;
+    visibility: hidden;
 }
 
 #intro h1.visible {
+    visibility: visible;
     opacity: 1;
     animation: fadeIn 1s ease forwards;
 }
 
 #intro h1.fade-out {
-    opacity: 0;
-    animation: fadeOut 1s ease forwards;
+    visibility: visible;
+    animation: fadeOut 1s ease-in forwards;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    0% { 
+        opacity: 0;
+        visibility: visible;
+    }
+    100% { 
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
 @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
+    0% { 
+        opacity: 1;
+        visibility: visible;
+    }
+    100% { 
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
 /* Add a new animation for the tabbed intro fade-in */

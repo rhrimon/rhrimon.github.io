@@ -11,15 +11,17 @@ document.addEventListener('DOMContentLoaded', () => {
         nameIntro.classList.add('visible');
         setTimeout(() => {
             console.log('Starting fade transition');
+            nameIntro.classList.remove('visible');
             nameIntro.classList.add('fade-out');
-            setTimeout(() => {
-                console.log('Transitioning to tabbed content');
-                nameIntro.classList.remove('visible', 'fade-out');
+            nameIntro.addEventListener('animationend', function handler() {
+                console.log('Fade out animation completed');
                 nameIntro.classList.add('hidden');
+                nameIntro.classList.remove('fade-out');
+                nameIntro.removeEventListener('animationend', handler);
                 tabbedIntro.classList.remove('hidden');
                 tabbedIntro.classList.add('visible');
                 initTabs();
-            }, 1000);
+            });
         }, 2000);
     }
     else {
