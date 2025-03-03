@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "tsc",
+    "build": "tsc && cp index.html dist/ && cp styles.css dist/ && cp -r assets dist/",
     "watch": "tsc --watch"
   },
   "keywords": [
