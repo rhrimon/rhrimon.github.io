@@ -509,8 +509,10 @@ body.error-page a {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     #intro h1 {
-        font-size: 3.5rem;
+        font-size: 4.5rem;
         margin-top: 20vh;
+        text-align: center;
+        justify-content: center;
     }
     
     .values-item {
@@ -524,11 +526,24 @@ body.error-page a {
     .intro-tabs {
         gap: 0.8rem;
         margin-bottom: 2rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 0.5rem 0;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    .intro-tabs::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
     }
     
     .tab-btn {
         font-size: 1rem;
         padding: 0.3rem 0.6rem;
+        white-space: nowrap;
+        flex: 0 0 auto;
     }
     
     .tab-content h2 {
@@ -544,7 +559,10 @@ body.error-page a {
 
 @media (max-width: 480px) {
     #intro h1 {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
+        text-align: center;
+        justify-content: center;
+        width: 100%;
     }
     
     .section {
@@ -557,8 +575,12 @@ body.error-page a {
     }
     
     .intro-tabs {
-        flex-direction: column;
+        flex-direction: row;
         gap: 0.5rem;
+        overflow-x: auto;
+        justify-content: flex-start;
+        height: auto;
+        padding-bottom: 1rem;
     }
     
     .tab-content h2 {
