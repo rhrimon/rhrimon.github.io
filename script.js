@@ -1,25 +1,28 @@
 "use strict";
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM fully loaded');
+    console.log('DOM fully loaded and script is running');
     const nameIntro = document.getElementById('name-intro');
     const tabbedIntro = document.getElementById('tabbed-intro');
-    console.log('nameIntro element:', nameIntro);
-    console.log('tabbedIntro element:', tabbedIntro);
+    console.log('Initial element states:');
+    console.log('nameIntro:', nameIntro?.style.display, nameIntro?.style.opacity);
+    console.log('tabbedIntro:', tabbedIntro?.style.display, tabbedIntro?.style.opacity);
     if (nameIntro && tabbedIntro) {
-        console.log('Both elements found, setting up animation');
+        console.log('Setting up initial animation states');
         nameIntro.style.opacity = '1';
         nameIntro.style.display = 'flex';
         nameIntro.style.animation = 'fadeIn 1s ease forwards';
+        console.log('nameIntro styles set:', 'display:', nameIntro.style.display, 'opacity:', nameIntro.style.opacity, 'animation:', nameIntro.style.animation);
         setTimeout(() => {
             console.log('Starting fadeOut animation');
             nameIntro.style.animation = 'fadeOut 1s ease forwards';
             setTimeout(() => {
-                console.log('Animation complete, showing tabbed content');
+                console.log('Showing tabbed content');
                 nameIntro.style.display = 'none';
                 tabbedIntro.style.display = 'flex';
                 tabbedIntro.style.opacity = '1';
                 tabbedIntro.classList.remove('hidden');
                 tabbedIntro.classList.add('visible');
+                console.log('tabbedIntro styles set:', 'display:', tabbedIntro.style.display, 'opacity:', tabbedIntro.style.opacity, 'classes:', tabbedIntro.className);
                 initTabs();
             }, 1000);
         }, 2000);
