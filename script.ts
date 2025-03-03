@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', (): void => {
-    console.log('DOM fully loaded');
+    console.log('DOM fully loaded and script is running');
     // Type definitions
     type ScrollBehavior = 'auto' | 'smooth';
     
@@ -12,17 +12,24 @@ document.addEventListener('DOMContentLoaded', (): void => {
     const nameIntro: HTMLElement | null = document.getElementById('name-intro');
     const tabbedIntro: HTMLElement | null = document.getElementById('tabbed-intro');
     
-    console.log('nameIntro element:', nameIntro);
-    console.log('tabbedIntro element:', tabbedIntro);
+    console.log('Initial element states:');
+    console.log('nameIntro:', nameIntro?.style.display, nameIntro?.style.opacity);
+    console.log('tabbedIntro:', tabbedIntro?.style.display, tabbedIntro?.style.opacity);
     
     // Force the animation to start immediately for debugging
     if (nameIntro && tabbedIntro) {
-        console.log('Both elements found, setting up animation');
+        console.log('Setting up initial animation states');
         
         // Make sure the name is visible first
         nameIntro.style.opacity = '1';
         nameIntro.style.display = 'flex';
         nameIntro.style.animation = 'fadeIn 1s ease forwards';
+        
+        console.log('nameIntro styles set:', 
+            'display:', nameIntro.style.display,
+            'opacity:', nameIntro.style.opacity,
+            'animation:', nameIntro.style.animation
+        );
         
         // Then set up the timeout for the fade out
         setTimeout(() => {
@@ -30,7 +37,7 @@ document.addEventListener('DOMContentLoaded', (): void => {
             nameIntro.style.animation = 'fadeOut 1s ease forwards';
             
             setTimeout(() => {
-                console.log('Animation complete, showing tabbed content');
+                console.log('Showing tabbed content');
                 nameIntro.style.display = 'none';
                 
                 // Force the tabbed content to be visible
@@ -38,6 +45,12 @@ document.addEventListener('DOMContentLoaded', (): void => {
                 tabbedIntro.style.opacity = '1';
                 tabbedIntro.classList.remove('hidden');
                 tabbedIntro.classList.add('visible');
+                
+                console.log('tabbedIntro styles set:', 
+                    'display:', tabbedIntro.style.display,
+                    'opacity:', tabbedIntro.style.opacity,
+                    'classes:', tabbedIntro.className
+                );
                 
                 // Initialize tab functionality
                 initTabs();
