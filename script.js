@@ -38,13 +38,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 tabButtons.forEach((btn) => {
                     btn.classList.remove('active');
                 });
-                tabContents.forEach((content) => {
-                    content.classList.remove('active');
-                });
+                const currentActive = document.querySelector('.tab-content.active');
                 button.classList.add('active');
                 const targetId = button.getAttribute('data-target') || '';
                 const targetContent = document.getElementById(targetId);
-                if (targetContent) {
+                if (currentActive && targetContent) {
+                    currentActive.classList.add('fade-out');
+                    setTimeout(() => {
+                        currentActive.classList.remove('active', 'fade-out');
+                        targetContent.classList.add('active');
+                    }, 300);
+                }
+                else if (targetContent) {
                     targetContent.classList.add('active');
                 }
             });
