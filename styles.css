@@ -92,7 +92,7 @@ nav ul {
     font-size: 20rem;
     font-weight: 500;
     line-height: 1.1;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 80vh;
@@ -101,7 +101,6 @@ nav ul {
 }
 
 #intro h1.visible {
-    display: flex;
     opacity: 1;
     animation: fadeIn 1s ease forwards;
 }
@@ -235,12 +234,7 @@ nav ul {
     top: 0;
     height: 100%;
     opacity: 0;
-    transition: opacity 0.6s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding-top: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .tab-content.active {
@@ -250,10 +244,12 @@ nav ul {
     justify-content: flex-start;
     position: absolute;
     opacity: 1;
+    animation: fadeIn 0.3s ease-in-out forwards;
 }
 
 .tab-content.fade-out {
-    animation: fadeOut 0.6s ease-out forwards;
+    opacity: 0;
+    animation: fadeOut 0.3s ease-in-out forwards;
 }
 
 /* Remove the h2 styles from tab content since we moved it out */

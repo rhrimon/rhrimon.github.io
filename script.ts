@@ -57,21 +57,29 @@ document.addEventListener('DOMContentLoaded', (): void => {
         
         tabButtons.forEach((button: HTMLButtonElement): void => {
             button.addEventListener('click', (): void => {
-                // Remove active class from all buttons and contents
+                // Remove active class from all buttons
                 tabButtons.forEach((btn: HTMLButtonElement): void => {
                     btn.classList.remove('active');
                 });
                 
-                tabContents.forEach((content: HTMLElement): void => {
-                    content.classList.remove('active');
-                });
+                // Get the currently active content
+                const currentActive = document.querySelector('.tab-content.active');
                 
-                // Add active class to clicked button and corresponding content
+                // Add active class to clicked button
                 button.classList.add('active');
                 const targetId: string = button.getAttribute('data-target') || '';
                 const targetContent: HTMLElement | null = document.getElementById(targetId);
                 
-                if (targetContent) {
+                if (currentActive && targetContent) {
+                    // Add fade-out to current content
+                    currentActive.classList.add('fade-out');
+                    
+                    // After fade-out animation
+                    setTimeout(() => {
+                        currentActive.classList.remove('active', 'fade-out');
+                        targetContent.classList.add('active');
+                    }, 300); // Match this with the CSS animation duration
+                } else if (targetContent) {
                     targetContent.classList.add('active');
                 }
             });
