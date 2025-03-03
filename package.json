@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "mkdir -p dist && tsc && cp index.html dist/ && cp styles.css dist/",
+    "build": "rm -rf dist && mkdir -p dist && tsc --listFiles && tsc && echo 'TypeScript compilation complete' && cp index.html dist/ && cp styles.css dist/ && echo 'Files copied successfully'",
     "watch": "tsc --watch"
   },
   "keywords": [
