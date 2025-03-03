@@ -106,13 +106,13 @@ nav ul {
 }
 
 @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(0); }
-    100% { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes fadeOut {
-    0% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translateY(0); }
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 
 /* Add a new animation for the tabbed intro fade-in */
@@ -148,7 +148,7 @@ nav ul {
 
 /* Add a specific class for the tabbed intro fade-in */
 #tabbed-intro.visible {
-    animation: fadeInTabbed 1.2s ease-out forwards;
+    animation: fadeIn 0.8s ease forwards;
 }
 
 /* Tabbed intro content */
@@ -229,7 +229,7 @@ nav ul {
     top: 0;
     height: 100%;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.6s ease-in-out;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -244,8 +244,6 @@ nav ul {
     justify-content: flex-start;
     position: absolute;
     opacity: 1;
-    animation: fadeInTabbed 0.8s ease-out forwards;
-    padding-top: 0;
 }
 
 .tab-content.fade-out {
@@ -340,7 +338,7 @@ nav ul {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -355,18 +353,21 @@ nav ul {
     line-height: 1.2;
     text-align: left;
     opacity: 0;
-    animation: fadeInUp 1s ease forwards;
+    transform: translateY(20px);
 }
 
 .values-item:nth-child(1) {
+    animation: fadeInUp 0.8s ease forwards;
     animation-delay: 0.3s;
 }
 
 .values-item:nth-child(2) {
+    animation: fadeInUp 0.8s ease forwards;
     animation-delay: 0.9s;
 }
 
 .values-item:nth-child(3) {
+    animation: fadeInUp 0.8s ease forwards;
     animation-delay: 1.5s;
 }
 
