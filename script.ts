@@ -25,20 +25,23 @@ document.addEventListener('DOMContentLoaded', (): void => {
         // After 2 seconds, start the transition
         setTimeout(() => {
             console.log('Starting fade transition');
+            nameIntro.classList.remove('visible');
             nameIntro.classList.add('fade-out');
             
-            // After the fade out animation completes (1s to match CSS animation)
-            setTimeout(() => {
-                console.log('Transitioning to tabbed content');
-                nameIntro.classList.remove('visible', 'fade-out');
+            // Listen for the animation end
+            nameIntro.addEventListener('animationend', function handler() {
+                console.log('Fade out animation completed');
                 nameIntro.classList.add('hidden');
+                nameIntro.classList.remove('fade-out');
+                nameIntro.removeEventListener('animationend', handler);
                 
+                // Show tabbed intro
                 tabbedIntro.classList.remove('hidden');
                 tabbedIntro.classList.add('visible');
                 
                 // Initialize tab functionality
                 initTabs();
-            }, 1000); // Match the fadeOut animation duration
+            });
         }, 2000);
     } else {
         console.error('One or both elements not found');
