@@ -92,17 +92,22 @@ nav ul {
     font-size: 20rem;
     font-weight: 500;
     line-height: 1.1;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     height: 80vh;
-    opacity: 1; /* Start visible */
-    animation: fadeIn 1s ease forwards;
+    opacity: 0;
     transition: opacity 0.8s ease-out;
 }
 
+#intro h1.visible {
+    display: flex;
+    opacity: 1;
+    animation: fadeIn 1s ease forwards;
+}
+
 #intro h1.fade-out {
-    animation: fadeOut 0.8s ease forwards;
+    animation: fadeOut 1s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -140,20 +145,21 @@ nav ul {
 
 .visible {
     display: flex !important;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     opacity: 1 !important;
+    animation: fadeIn 0.8s ease forwards;
 }
 
 /* Add a specific class for the tabbed intro fade-in */
 #tabbed-intro.visible {
+    display: flex;
+    opacity: 1;
     animation: fadeIn 0.8s ease forwards;
 }
 
 /* Tabbed intro content */
 #tabbed-intro {
-    display: flex;
+    display: none;
+    opacity: 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
