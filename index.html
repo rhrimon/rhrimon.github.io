@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>rimon hasan</title>
+    <style>
+        /* Critical CSS to ensure no underlines */
+        a, a:hover, a:active, a:focus, a.active, nav ul li a, nav ul li a.active {
+            text-decoration: none !important;
+            border-bottom: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Simple test to check if JavaScript is running
+        console.log('Head script loaded');
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMContentLoaded event fired from inline script');
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#intro">intro</a></li>
+                <li><a href="#work">work</a></li>
+                <li><a href="#values">values</a></li>
+                <li><a href="#about">about</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="intro" class="section">
+        <div class="container">
+            <h1 id="name-intro">rimon<br>hasan</h1>
+            
+            <div id="tabbed-intro" class="hidden">
+                <div class="intro-tabs">
+                    <button class="tab-btn active" data-target="for-anyone">for anyone</button>
+                    <button class="tab-btn" data-target="recruiters">recruiters</button>
+                    <button class="tab-btn" data-target="qa">QA</button>
+                    <button class="tab-btn" data-target="engineers">engineers</button>
+                    <button class="tab-btn" data-target="designers">designers</button>
+                    <button class="tab-btn" data-target="product-managers">product managers</button>
+                </div>
+                
+                <h2 class="static-heading">hello there</h2>
+                
+                <div class="intro-content">
+                    <div id="for-anyone" class="tab-content active">
+                        <h3>i'm a QA engineer</h3>
+                        <h3>who loves to break things</h3>
+                    </div>
+                    
+                    <div id="recruiters" class="tab-content">
+                        <h3>i'm a QA engineer with over 10</h3>
+                        <h3>years of experience in both manual</h3>
+                        <h3>and automated software testing.</h3>
+                        <h3>i <span style="color: #35C589;">am</span> currently looking for a new</h3>
+                        <h3>role</h3>
+                    </div>
+                    
+                    <div id="qa" class="tab-content">
+                        <h3>i'm a QA engineer who thinks</h3>
+                        <h3>the best teams are built on trust</h3>
+                        <h3>and curiosity</h3>
+                    </div>
+                    
+                    <div id="engineers" class="tab-content">
+                        <h3>i'm a QA engineer who believes</h3>
+                        <h3>that tight collaboration with</h3>
+                        <h3>devs is the best way to craft</h3>
+                        <h3>bulletproof code</h3>
+                    </div>
+                    
+                    <div id="designers" class="tab-content">
+                        <h3>i'm a QA engineer who knows</h3>
+                        <h3>thoughtful design deserves a</h3>
+                        <h3>careful execution</h3>
+                    </div>
+                    
+                    <div id="product-managers" class="tab-content">
+                        <h3>i'm a QA engineer who makes</h3>
+                        <h3>sure the product vision is</h3>
+                        <h3>always backed by quality</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="section">
+        <div class="container">
+            <div class="work-item">
+                <h2>Poll Everywhere</h2>
+                <p class="work-date">2021 - Current // Remote</p>
+                <p>Led automation testing with Playwright (TypeScript) and RSpec (Ruby), integrated QA processes into the SDLC, and ensured WCAG accessibility compliance. Leveraged tools like Asana, Datadog, and Notion to reduce defects, enhance coverage, and streamline reporting across releases</p>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="work-item">
+                <h2>SEC</h2>
+                <p class="work-date">2017 - 2021 // Washington DC</p>
+                <p>Transformed manual test suites into automated frameworks with UFT and Selenium, cutting execution time by 80% and improving EDGAR system reliability. Oversaw requirement mapping in HP ALM, ensured regulatory compliance with Inline XBRL and XBRL Conformance Suites, and mentored cross-functional teams in advanced QA practices</p>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="work-item">
+                <h2>Zoomtech</h2>
+                <p class="work-date">2013 - 2016 // NYC</p>
+                <p>Performed functional, integration, and regression testing across Oracle databases, web services, and Python-based frameworks, ensuring smooth project delivery. Streamlined defect tracking with SBM and JIRA, facilitated regular status meetings, and mentored junior testers</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="values" class="section">
+        <div class="container">
+            <div class="values-content">
+                <div class="values-left">
+                    <h2 class="values-item">curious</h2>
+                    <h2 class="values-item">creative</h2>
+                    <h2 class="values-item">collaborative</h2>
+                </div>
+                
+                <div class="values-right">
+                    <p>these are the core values i strive to bring to my everyday work. i believe what separates a good QA engineer from a great one is their ability to remain curious and creative, and it's the fact that those aspects are so naturally rewarded in this line of work that has kept me in quality engineering all these years. i love figuring out new ways to break things but I also love bringing that foundation to other teams or those that are newer to the field</p>
+
+                    <p>i believe QA is about more than just finding bugs. i believe that quality plays an essential role in every aspect of the life cycle, engineering or otherwise. i view QA as not just a last line of defense but often times a first line, as well as a valuable resource for other teams to turn to in regards to product knowledge and usage</p>
+
+                    <p>above all, i want my work to be meaningful. whether it's improving a product by making sure every edge case is explored or refactoring a process to cut out bottlenecks, the most fulfilling aspect of any work I do is when I'm able to have a direct impact on the overall quality of something and making sure it's the best it can be</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">            
+            <div class="about-info">
+                <h1>QA engineer<br> 
+                based in queens nyc</h1>
+                
+                <p>when i'm not breaking things<br>
+                i'm usually out shooting street photography<br>
+                or messing with ableton</p>
+                
+                <p>currently watching: severance<br>
+                currently playing: kingdom come deliverance II</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="contact-content">
+                <p class="email"><a href="mailto:hasanrimon@outlook.com">hasanrimon@outlook.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <script src="dist/script.js"></script>
+</body>
+</html> 

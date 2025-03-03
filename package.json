@@ -1,0 +1,23 @@
+{
+  "name": "rimon-hasan-personal-site",
+  "version": "1.0.0",
+  "description": "Personal website for Rimon Hasan",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "keywords": [
+    "personal",
+    "website",
+    "portfolio"
+  ],
+  "author": "Rimon Hasan",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "typescript": "^5.0.4"
+  }
+}

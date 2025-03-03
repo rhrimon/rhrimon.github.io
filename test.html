@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Tabbed Interface</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+        }
+        .debug-info {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test Page</h1>
+    
+    <div class="debug-info">
+        <p>Check the browser console for JavaScript logs</p>
+    </div>
+    
+    <div id="name-intro">Test Name</div>
+    
+    <div id="tabbed-intro" class="hidden">
+        <div class="intro-tabs">
+            <button class="tab-btn active" data-target="tab1">Tab 1</button>
+            <button class="tab-btn" data-target="tab2">Tab 2</button>
+        </div>
+        
+        <div class="intro-content">
+            <div id="tab1" class="tab-content active">
+                <h2>Tab 1 Content</h2>
+                <p>This is the content for tab 1</p>
+            </div>
+            
+            <div id="tab2" class="tab-content">
+                <h2>Tab 2 Content</h2>
+                <p>This is the content for tab 2</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Simple test script
+        console.log('Test script running');
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMContentLoaded event fired');
+            
+            const nameIntro = document.getElementById('name-intro');
+            const tabbedIntro = document.getElementById('tabbed-intro');
+            
+            console.log('nameIntro:', nameIntro);
+            console.log('tabbedIntro:', tabbedIntro);
+            
+            if (nameIntro && tabbedIntro) {
+                console.log('Both elements found');
+                
+                // Manual trigger for testing
+                document.querySelector('.debug-info').innerHTML += '<p>Elements found. Click to trigger animation</p>';
+                document.querySelector('.debug-info').addEventListener('click', function() {
+                    console.log('Manual trigger clicked');
+                    nameIntro.style.display = 'none';
+                    tabbedIntro.classList.remove('hidden');
+                    tabbedIntro.classList.add('visible');
+                    
+                    // Initialize tabs
+                    const tabButtons = document.querySelectorAll('.tab-btn');
+                    const tabContents = document.querySelectorAll('.tab-content');
+                    
+                    tabButtons.forEach(function(button) {
+                        button.addEventListener('click', function() {
+                            // Remove active class from all buttons and contents
+                            tabButtons.forEach(function(btn) {
+                                btn.classList.remove('active');
+                            });
+                            
+                            tabContents.forEach(function(content) {
+                                content.classList.remove('active');
+                            });
+                            
+                            // Add active class to clicked button and corresponding content
+                            button.classList.add('active');
+                            const targetId = button.getAttribute('data-target');
+                            const targetContent = document.getElementById(targetId);
+                            
+                            if (targetContent) {
+                                targetContent.classList.add('active');
+                            }
+                        });
+                    });
+                });
+            } else {
+                document.querySelector('.debug-info').innerHTML += '<p>Error: One or both elements not found</p>';
+            }
+        });
+    </script>
+</body>
+</html> 
