@@ -37,21 +37,28 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('Tab contents found:', tabContents.length);
         tabButtons.forEach((button) => {
             button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab') || '';
+                const targetContent = document.getElementById(`${tabId}-content`);
+                if (button.classList.contains('active')) {
+                    return;
+                }
                 tabButtons.forEach((btn) => {
                     btn.classList.remove('active');
                 });
-                const currentActive = document.querySelector('.tab-content.active');
-                button.classList.add('active');
-                const targetId = button.getAttribute('data-target') || '';
-                const targetContent = document.getElementById(targetId);
-                if (currentActive && targetContent) {
-                    currentActive.classList.add('fade-out');
+                const activeContent = document.querySelector('.tab-content.active');
+                if (activeContent && targetContent) {
+                    activeContent.classList.add('fade-out');
                     setTimeout(() => {
-                        currentActive.classList.remove('active', 'fade-out');
+                        tabContents.forEach((content) => {
+                            content.classList.remove('active');
+                            content.classList.remove('fade-out');
+                        });
+                        button.classList.add('active');
                         targetContent.classList.add('active');
                     }, 300);
                 }
                 else if (targetContent) {
+                    button.classList.add('active');
                     targetContent.classList.add('active');
                 }
             });
