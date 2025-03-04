@@ -60,29 +60,38 @@ document.addEventListener('DOMContentLoaded', (): void => {
         
         tabButtons.forEach((button: HTMLButtonElement): void => {
             button.addEventListener('click', (): void => {
+                const tabId: string = button.getAttribute('data-tab') || '';
+                const targetContent: HTMLElement | null = document.getElementById(`${tabId}-content`);
+                
+                // If already active, do nothing
+                if (button.classList.contains('active')) {
+                    return;
+                }
+                
                 // Remove active class from all buttons
                 tabButtons.forEach((btn: HTMLButtonElement): void => {
                     btn.classList.remove('active');
                 });
                 
-                // Get the currently active content
-                const currentActive = document.querySelector('.tab-content.active');
-                
-                // Add active class to clicked button
-                button.classList.add('active');
-                const targetId: string = button.getAttribute('data-target') || '';
-                const targetContent: HTMLElement | null = document.getElementById(targetId);
-                
-                if (currentActive && targetContent) {
-                    // Add fade-out to current content
-                    currentActive.classList.add('fade-out');
+                // Add fade-out class to currently active content
+                const activeContent: HTMLElement | null = document.querySelector('.tab-content.active');
+                if (activeContent && targetContent) {
+                    activeContent.classList.add('fade-out');
                     
-                    // After fade-out animation
+                    // Wait for animation to complete before switching content
                     setTimeout(() => {
-                        currentActive.classList.remove('active', 'fade-out');
+                        tabContents.forEach((content: HTMLElement): void => {
+                            content.classList.remove('active');
+                            content.classList.remove('fade-out');
+                        });
+                        
+                        // Add active class to clicked button and corresponding content
+                        button.classList.add('active');
                         targetContent.classList.add('active');
-                    }, 300); // Match this with the CSS animation duration
+                    }, 300); // Match this to the CSS animation duration
                 } else if (targetContent) {
+                    // If no active content (first load), just activate the new content
+                    button.classList.add('active');
                     targetContent.classList.add('active');
                 }
             });
