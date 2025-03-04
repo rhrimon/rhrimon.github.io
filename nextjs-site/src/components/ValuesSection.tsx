@@ -1,16 +1,17 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const ValuesSection = () => {
   const valuesRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
   
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Values section is in view, animations will play via CSS
+            setIsVisible(true);
             observer.unobserve(entry.target);
           }
         });
@@ -34,24 +35,21 @@ const ValuesSection = () => {
       <div className="container">
         <div 
           ref={valuesRef}
-          className="flex flex-row justify-between items-start w-full gap-24 max-w-[870px] mx-auto md:flex-col md:gap-8"
+          className="flex flex-row justify-between items-start w-full gap-24 max-w-[870px] mx-auto lg:flex-col lg:gap-8"
         >
           <div className="flex-none">
             <h2 
-              className="text-5xl md:text-4xl sm:text-[2.5rem] font-medium mb-4 leading-tight text-left opacity-0 transform translate-y-5"
-              style={{ animation: 'fadeInUp 0.8s ease forwards 0.3s' }}
+              className={`text-5xl lg:text-4xl sm:text-[2.5rem] font-medium mb-4 leading-tight text-left opacity-0 transform translate-y-5 ${isVisible ? 'animate-fadeIn1' : ''}`}
             >
               curious
             </h2>
             <h2 
-              className="text-5xl md:text-4xl sm:text-[2.5rem] font-medium mb-4 leading-tight text-left opacity-0 transform translate-y-5"
-              style={{ animation: 'fadeInUp 0.8s ease forwards 0.9s' }}
+              className={`text-5xl lg:text-4xl sm:text-[2.5rem] font-medium mb-4 leading-tight text-left opacity-0 transform translate-y-5 ${isVisible ? 'animate-fadeIn2' : ''}`}
             >
               creative
             </h2>
             <h2 
-              className="text-5xl md:text-4xl sm:text-[2.5rem] font-medium mb-4 leading-tight text-left opacity-0 transform translate-y-5"
-              style={{ animation: 'fadeInUp 0.8s ease forwards 1.5s' }}
+              className={`text-5xl lg:text-4xl sm:text-[2.5rem] font-medium mb-4 leading-tight text-left opacity-0 transform translate-y-5 ${isVisible ? 'animate-fadeIn3' : ''}`}
             >
               collaborative
             </h2>

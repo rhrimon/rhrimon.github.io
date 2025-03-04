@@ -30,19 +30,19 @@ const IntroSection = () => {
 
   return (
     <section id="intro" className="section">
-      <div className="container">
+      <div className="container h-screen flex flex-col items-center justify-center">
         {/* Name Intro */}
         <h1 
-          className={`text-6xl md:text-8xl lg:text-9xl font-medium mb-4 transition-opacity duration-500 ${
+          className={`text-[20rem] font-medium mb-4 transition-opacity duration-500 ${
             showNameIntro ? 'opacity-100' : 'opacity-0'
-          } ${!showNameIntro && !showTabbedIntro ? 'hidden' : ''}`}
+          } ${!showNameIntro && !showTabbedIntro ? 'hidden' : ''} md:text-[5.5rem] sm:text-[4.5rem]`}
           style={{ 
             animation: showNameIntro ? 'fadeIn 0.5s ease-in-out' : 'fadeOut 1s ease-in-out',
             lineHeight: '1.1',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            height: '80vh',
+            height: showNameIntro ? '80vh' : '0',
           }}
         >
           rimon<br />hasan
@@ -50,7 +50,7 @@ const IntroSection = () => {
         
         {/* Tabbed Intro */}
         <div 
-          className={`w-full max-w-[870px] mx-auto transition-opacity duration-500 ${
+          className={`w-full max-w-[870px] mx-auto transition-opacity duration-500 absolute top-0 left-0 right-0 ${
             showTabbedIntro ? 'opacity-100' : 'opacity-0 hidden'
           }`}
           style={{ 
@@ -59,7 +59,8 @@ const IntroSection = () => {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            padding: '10vh 2rem 5rem',
+            justifyContent: 'center',
+            padding: '0 2rem',
           }}
         >
           {/* Tab Buttons */}

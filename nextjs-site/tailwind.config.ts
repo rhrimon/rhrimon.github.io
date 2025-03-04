@@ -30,6 +30,9 @@ const config: Config = {
         fadeIn: 'fadeIn 0.5s ease-in-out',
         fadeOut: 'fadeOut 1s ease-in-out',
         fadeInUp: 'fadeInUp 0.8s ease-out',
+        fadeIn1: 'fadeInUp 0.8s ease-out forwards 0.3s',
+        fadeIn2: 'fadeInUp 0.8s ease-out forwards 0.9s',
+        fadeIn3: 'fadeInUp 0.8s ease-out forwards 1.5s',
       },
       keyframes: {
         fadeIn: {
