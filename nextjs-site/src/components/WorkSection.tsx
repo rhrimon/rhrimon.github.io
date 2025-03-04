@@ -4,8 +4,8 @@ const WorkSection = () => {
   return (
     <section id="work" className="section">
       <div className="container flex flex-col items-center justify-center">
-        <div className="w-full max-w-[870px] mx-auto">
-          <div className="mb-8 mt-0 font-light text-lg text-left flex flex-col items-left">
+        <div className="w-full max-w-[870px] mx-auto flex flex-col items-center">
+          <div className="w-full mb-8 mt-0 font-light text-lg text-left">
             <h2 className="text-[3.6rem] mb-0 font-semibold">Poll Everywhere</h2>
             <p className="text-base font-medium text-[#666564] mb-4">2021 - Current // Remote</p>
             <p className="max-w-[500px] leading-relaxed text-left">
@@ -13,9 +13,9 @@ const WorkSection = () => {
             </p>
           </div>
           
-          <div className="w-[1px] h-[100px] bg-white my-8 mx-auto"></div>
+          <div className="w-[1px] h-[100px] bg-white my-8"></div>
           
-          <div className="mb-8 mt-0 font-light text-lg text-left flex flex-col items-left">
+          <div className="w-full mb-8 mt-0 font-light text-lg text-left">
             <h2 className="text-[3.6rem] mb-0 font-semibold">SEC</h2>
             <p className="text-base font-medium text-[#666564] mb-4">2017 - 2021 // Washington DC</p>
             <p className="max-w-[500px] leading-relaxed text-left">
@@ -23,9 +23,9 @@ const WorkSection = () => {
             </p>
           </div>
           
-          <div className="w-[1px] h-[100px] bg-white my-8 mx-auto"></div>
+          <div className="w-[1px] h-[100px] bg-white my-8"></div>
           
-          <div className="mb-8 mt-0 font-light text-lg text-left flex flex-col items-left">
+          <div className="w-full mb-8 mt-0 font-light text-lg text-left">
             <h2 className="text-[3.6rem] mb-0 font-semibold">Zoomtech</h2>
             <p className="text-base font-medium text-[#666564] mb-4">2013 - 2016 // NYC</p>
             <p className="max-w-[500px] leading-relaxed text-left">
