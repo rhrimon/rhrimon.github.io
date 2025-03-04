@@ -45,6 +45,13 @@ const config: Config = {
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       },
+      screens: {
+        'sm': {'max': '480px'},
+        'md': {'max': '768px'},
+        'lg': {'max': '992px'},
+        'xl': {'max': '1024px'},
+        '2xl': {'max': '1280px'},
+      },
     },
   },
   plugins: [],
