@@ -1,0 +1,493 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000000;
+  --foreground: #ededed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  * {
+    @apply box-border p-0 m-0;
+  }
+
+  body {
+    @apply font-sans text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium;
+  }
+
+  a {
+    @apply text-white no-underline transition-colors duration-300;
+  }
+
+  a:hover {
+    @apply text-gray-400;
+  }
+
+  /* Navbar active link styling */
+  nav ul li a.active,
+  nav ul li a[aria-current="page"] {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    text-decoration: none !important;
+  }
+
+  /* Additional specificity for active links */
+  header nav ul li a.active,
+  header nav ul li a[aria-current="page"] {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    text-decoration: none !important;
+  }
+
+  ul {
+    @apply list-none;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply min-h-screen flex items-center justify-center py-16;
+  }
+
+  .custom-hidden {
+    @apply opacity-0 invisible;
+  }
+
+  .visible {
+    @apply opacity-100 visible;
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  /* Custom classes for navbar visibility */
+  .navbar-visible {
+    @apply opacity-100 visible;
+  }
+  
+  .navbar-hidden {
+    @apply opacity-0 invisible;
+  }
+  
+  /* Add a specific class for the tabbed intro fade-in */
+  #tabbed-intro.visible {
+    display: flex;
+    opacity: 1;
+    animation: fadeIn 0.8s ease forwards;
+  }
+  
+  .fade-out {
+    @apply visible;
+    animation: fadeOut 0.6s ease forwards;
+  }
+  
+  /* Tab content styles */
+  .tab-content {
+    display: none;
+    text-align: left;
+    position: relative;
+    width: 100%;
+    height: auto;
+    opacity: 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .tab-content.active {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    opacity: 1;
+    animation: fadeInTabbed 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    z-index: 1;
+  }
+  
+  .tab-content.fade-out {
+    opacity: 0;
+    animation: fadeOut 0.3s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  /* Tab button styles */
+  .tab-btn {
+    background: transparent;
+    border: none;
+    color: #666564;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s ease, opacity 0.3s ease;
+    white-space: nowrap;
+    flex: 0 0 auto;
+    filter: none;
+    opacity: 0.7;
+    text-align: center;
+  }
+  
+  .tab-btn:hover, 
+  .tab-btn.active {
+    color: #fff;
+    filter: none;
+    opacity: 1;
+  }
+
+  /* Add specific styles for the intro content container */
+  .intro-content {
+    position: relative;
+    min-height: 400px;
+    height: auto;
+    width: 100%;
+    overflow: visible;
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Add responsive styles for intro section */
+  @media (max-width: 768px) {
+    .intro-tabs {
+      justify-content: flex-start;
+      padding-bottom: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .tab-btn {
+      padding: 0.25rem 0;
+    }
+    
+    .intro-content {
+      min-height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .static-heading {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .intro-tabs {
+      gap: 1rem;
+    }
+    
+    .intro-content {
+      min-height: 250px;
+    }
+    
+    #tabbed-intro.visible {
+      padding-top: 15vh;
+    }
+  }
+
+  /* Add specific styles for the tabbed intro container */
+  #tabbed-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Add specific styles for the static heading */
+  .static-heading {
+    text-align: left;
+    width: 100%;
+    max-width: 870px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Add specific styles for the intro tabs */
+  .intro-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    max-width: 870px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+}
+
+/* Values section responsive styles */
+@media (max-width: 992px) {
+  #values .flex {
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+  
+  #values .lg\:ml-0 {
+    margin-left: 0 !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Ensure values text is visible on all screen sizes */
+.values-right-text {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Values items styling */
+#values h2 {
+  font-size: 5rem !important;
+  font-weight: 500 !important;
+  margin-bottom: 1rem !important;
+  line-height: 1.2 !important;
+}
+
+/* Add specific styling for values-item class */
+.values-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@media (max-width: 992px) {
+  #values h2 {
+    font-size: 4rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #values h2 {
+    font-size: 3rem !important;
+  }
+  
+  .values-right-text p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  #values h2 {
+    font-size: 2.5rem !important;
+  }
+}
+
+@keyframes fadeIn {
+  0% { 
+    opacity: 0;
+    visibility: visible;
+    transform: translateY(10px);
+  }
+  100% { 
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% { 
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  100% { 
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add animation for tabbed content */
+@keyframes fadeInTabbed {
+  0% { 
+    opacity: 0; 
+    transform: translateY(10px); 
+    visibility: visible;
+  }
+  100% { 
+    opacity: 1; 
+    transform: translateY(0); 
+    visibility: visible;
+  }
+}
+
+/* Add animations for navbar transitions */
+@keyframes fadeInRight {
+  0% { 
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% { 
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOutUp {
+  0% { 
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+  100% { 
+    opacity: 0;
+    transform: translateY(-20px);
+    visibility: hidden;
+  }
+}
+
+/* Mobile navbar styles */
+@media (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+  }
+  
+  .mobile-menu {
+    display: block;
+    animation: fadeIn 0.3s ease forwards;
+  }
+  
+  .mobile-menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: fadeInRight 0.3s ease forwards;
+  }
+  
+  header div[class*="fixed top-6 right-8"] nav ul {
+    text-align: right;
+  }
+  
+  header div[class*="fixed top-6 right-8"] nav ul li a {
+    display: block;
+    padding: 2px 0;
+  }
+  
+  /* Hide center and right navbars on mobile */
+  .navbar-center, .navbar-right {
+    display: none;
+  }
+  
+  /* Mobile menu fade-out animation */
+  .mobile-menu-fade-out {
+    animation: mobileMenuFadeOut 0.3s ease forwards !important;
+  }
+  
+  @keyframes mobileMenuFadeOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(10px);
+      visibility: visible;
+    }
+  }
+  
+  /* Ensure the mobile menu button is always visible */
+  .mobile-menu-button {
+    display: flex !important;
+  }
+}
+
+/* Navbar center and right styles */
+.navbar-center {
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* Fix for right-aligned navbar */
+@media (min-width: 769px) {
+  /* Ensure the right navbar is visible on desktop when not on intro section */
+  /* header div[class*="fixed top-6 right-8"] {
+    opacity: 1;
+    visibility: visible;
+  } */
+  
+  header div[class*="fixed top-6 right-8"] nav {
+    display: block !important;
+    animation: fadeInRight 0.3s ease forwards;
+  }
+  
+  /* Vertical navbar styling */
+  header div[class*="fixed top-6 right-8"] nav ul {
+    text-align: right;
+  }
+  
+  header div[class*="fixed top-6 right-8"] nav ul li a {
+    display: block;
+    padding: 2px 0;
+  }
+}
+
+/* Hamburger menu styles */
+.hamburger-line {
+  transform-origin: center;
+}
+
+/* Add responsive styles for the navbar */
+@media (max-width: 480px) {
+  header {
+    padding: 1rem;
+  }
+}
