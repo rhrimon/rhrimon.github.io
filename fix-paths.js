@@ -47,6 +47,21 @@ function fixPaths(htmlFile) {
   const faviconPattern = /\["link","2",\{"rel":"icon"[^\]]*\]\]/g;
   content = content.replace(faviconPattern, '');
   
+  // Fix JavaScript syntax errors with escaped characters
+  // Replace escaped arrow functions to ensure proper semicolons
+  content = content.replace(/section =\\u003e \{/g, 'section => {');
+  content = content.replace(/link =\\u003e \{/g, 'link => {');
+  
+  // Fix logical operators
+  content = content.replace(/\\u0026\\u0026/g, '&&');
+  content = content.replace(/\\u003e=/g, '>=');
+  content = content.replace(/\\u003c/g, '<');
+  
+  // Normalize any remaining escape sequences in JavaScript
+  content = content.replace(/(self.__next_f=self.__next_f\|\|\[\])\.push\(\[1,"[^"]*\\u[^"]*"\]\)/g, 
+                           match => match.replace(/\\u([0-9a-fA-F]{4})/g, (m, code) => 
+                                               String.fromCharCode(parseInt(code, 16))));
+  
   fs.writeFileSync(htmlFile, content);
   console.log(`Fixed paths in: ${htmlFile}`);
 }
