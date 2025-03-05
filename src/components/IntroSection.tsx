@@ -80,7 +80,7 @@ const IntroSection = () => {
           }}
         >
           {/* Tab Buttons */}
-          <div className="intro-tabs flex flex-nowrap gap-4 sm:gap-6 md:gap-8 mb-0 w-full z-10 max-w-[870px] overflow-x-auto pb-2 px-4 sm:px-0 scrollbar-hide mx-auto">
+          <div className="intro-tabs flex flex-nowrap gap-4 sm:gap-6 md:gap-8 mb-0 w-full z-10 max-w-[870px] overflow-x-auto pb-2 scrollbar-hide mx-auto">
             <button
               className={`tab-btn text-[1.1rem] sm:text-[1.3rem] md:text-[1.5rem] font-medium transition-colors duration-300 whitespace-nowrap ${
                 activeTab === 'for-anyone' ? 'active' : ''

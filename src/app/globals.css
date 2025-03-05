@@ -167,6 +167,30 @@ body {
       padding-right: 0; /* Remove any potential padding causing misalignment */
     }
     
+    /* Ensure tab buttons align with content */
+    .intro-tabs {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      width: 100%;
+    }
+    
+    /* Ensure static heading aligns with tabs and content */
+    .static-heading {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    
+    /* Ensure about section aligns properly on mobile */
+    #about .container {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+    
+    #about .max-w-\[870px\] {
+      width: 100%;
+      margin-left: 0 !important;
+    }
+    
     /* Force proper stacking and prevent layout thrashing while allowing content to be responsive */
     .tab-content, 
     .tab-content.active, 
@@ -178,13 +202,6 @@ body {
       top: 0;
       left: 0;
       transform: translate3d(0, 0, 0); /* Force GPU acceleration */
-    }
-    
-    /* Ensure text is properly aligned with static heading */
-    .static-heading,
-    .tab-content h3 {
-      padding-left: 0; /* Ensure consistent padding */
-      padding-right: 0; /* Ensure consistent padding */
     }
     
     /* Keep existing styles but add GPU acceleration to prevent flickering */
