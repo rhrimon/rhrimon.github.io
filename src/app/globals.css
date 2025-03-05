@@ -144,6 +144,27 @@ body {
     z-index: 0;
   }
   
+  /* Mobile optimizations for tab transitions */
+  @media (max-width: 767px) {
+    .tab-content.active {
+      will-change: opacity, transform;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      perspective: 1000;
+      -webkit-perspective: 1000;
+    }
+    
+    .tab-content.fade-out {
+      will-change: opacity, transform;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      perspective: 1000;
+      -webkit-perspective: 1000;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+    }
+  }
+  
   /* Tab button styles */
   .tab-btn {
     background: transparent;
@@ -336,12 +357,12 @@ body {
   0% { 
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0) translateZ(0);
   }
   100% { 
     opacity: 0;
     visibility: hidden;
-    transform: translateY(10px);
+    transform: translateY(10px) translateZ(0);
   }
 }
 
@@ -360,12 +381,12 @@ body {
 @keyframes fadeInTabbed {
   0% { 
     opacity: 0; 
-    transform: translateY(10px); 
+    transform: translateY(10px) translateZ(0); 
     visibility: visible;
   }
   100% { 
     opacity: 1; 
-    transform: translateY(0); 
+    transform: translateY(0) translateZ(0); 
     visibility: visible;
   }
 }
