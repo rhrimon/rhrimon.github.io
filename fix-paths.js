@@ -32,6 +32,18 @@ function fixPaths(htmlFile) {
   // Replace all occurrences of /_next/ with ./_next/
   content = content.replace(/\/_next\//g, './_next/');
   
+  // Remove favicon link tag from HTML
+  content = content.replace(/<link rel="icon"[^>]*>/g, '');
+  
+  // Remove favicon references in JavaScript - more aggressive approach
+  content = content.replace(/\[\"link\",\"2\",\{[^\]]*\"favicon[^\]]*\]\]/g, '');
+  content = content.replace(/\"favicon\.ico\"/g, '""');
+  
+  // Direct string replacement for the specific favicon reference in the last script
+  // Use a simpler approach to avoid linter errors
+  const faviconPattern = /\["link","2",\{"rel":"icon"[^\]]*\]\]/g;
+  content = content.replace(faviconPattern, '');
+  
   fs.writeFileSync(htmlFile, content);
   console.log(`Fixed paths in: ${htmlFile}`);
 }

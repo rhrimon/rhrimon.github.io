@@ -23,9 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} bg-black text-white min-h-screen`}>
-        {children}
-        <Script id="nav-highlight" strategy="afterInteractive">
-          {`
+        <main className="min-h-screen">{children}</main>
+        <Script
+          id="nav-highlight"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
             // Function to highlight active nav item
             function highlightActiveNavItem() {
               const navLinks = document.querySelectorAll('nav ul li a');
@@ -62,8 +65,9 @@ export default function RootLayout({
             
             // Initial call
             document.addEventListener('DOMContentLoaded', highlightActiveNavItem);
-          `}
-        </Script>
+          `,
+          }}
+        />
       </body>
     </html>
   );
