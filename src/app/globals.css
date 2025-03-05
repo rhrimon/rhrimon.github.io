@@ -144,24 +144,78 @@ body {
     z-index: 0;
   }
   
-  /* Mobile optimizations for tab transitions */
+  /* Mobile-specific fix for the flickering issue during tab transitions */
   @media (max-width: 767px) {
-    .tab-content.active {
-      will-change: opacity, transform;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      perspective: 1000;
-      -webkit-perspective: 1000;
+    /* Ensure consistent container alignment */
+    #tabbed-intro {
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
     }
     
+    #tabbed-intro .max-w-\[870px\] {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    /* Make intro content create a stable container */
+    .intro-content {
+      position: relative;
+      min-height: 30vh; /* Use viewport height instead of fixed pixels for better responsiveness */
+      overflow: visible; /* Allow content to flow naturally when needed */
+      padding-left: 0; /* Remove any potential padding causing misalignment */
+      padding-right: 0; /* Remove any potential padding causing misalignment */
+    }
+    
+    /* Force proper stacking and prevent layout thrashing while allowing content to be responsive */
+    .tab-content, 
+    .tab-content.active, 
     .tab-content.fade-out {
-      will-change: opacity, transform;
+      position: absolute;
+      width: 100%;
+      height: auto; /* Allow height to adjust to content */
+      min-height: 100%; /* Ensure it takes at least full height of parent */
+      top: 0;
+      left: 0;
+      transform: translate3d(0, 0, 0); /* Force GPU acceleration */
+    }
+    
+    /* Ensure text is properly aligned with static heading */
+    .static-heading,
+    .tab-content h3 {
+      padding-left: 0; /* Ensure consistent padding */
+      padding-right: 0; /* Ensure consistent padding */
+    }
+    
+    /* Keep existing styles but add GPU acceleration to prevent flickering */
+    .tab-content h3 {
+      transform: translate3d(0, 0, 0);
       backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      perspective: 1000;
-      -webkit-perspective: 1000;
-      transform: translateZ(0);
-      -webkit-transform: translateZ(0);
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Ensure line breaks work properly */
+    .tab-content h3 {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+  }
+  
+  /* Adjust minimum height on smaller screens to ensure text fits */
+  @media (max-width: 480px) {
+    .intro-content {
+      min-height: 40vh; /* Taller on smallest screens */
+    }
+    
+    /* Fix alignment on smallest screens */
+    #tabbed-intro .static-heading,
+    #tabbed-intro .intro-content,
+    #tabbed-intro .tab-content h3 {
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: 0;
+      margin-right: 0;
     }
   }
   
@@ -511,4 +565,17 @@ body {
   header {
     padding: 1rem;
   }
+}
+
+/* Apply text stabilization to prevent flickering */
+.tab-content h3 {
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Prevent text flicker during fade animations */
+.tab-content.active h3,
+.tab-content.fade-out h3 {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }

@@ -8,7 +8,7 @@ const IntroSection = () => {
   const [showTabbedIntro, setShowTabbedIntro] = useState(false);
   const [fadingOut, setFadingOut] = useState(false);
   const [previousTab, setPreviousTab] = useState('');
-
+  
   useEffect(() => {
     // Start with name intro visible
     const nameIntroTimer = setTimeout(() => {
@@ -67,7 +67,7 @@ const IntroSection = () => {
         {/* Tabbed Intro */}
         <div 
           id="tabbed-intro"
-          className={`w-full max-w-[1200px] mx-auto absolute top-0 left-0 right-0 ${
+          className={`w-full max-w-[1200px] mx-auto absolute top-0 left-0 right-0 px-4 sm:px-0 ${
             showTabbedIntro ? 'visible' : 'custom-hidden'
           }`}
           style={{ 
@@ -76,7 +76,7 @@ const IntroSection = () => {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '10vh 1rem 5rem',
+            padding: '10vh 0 5rem',
           }}
         >
           {/* Tab Buttons */}
@@ -132,12 +132,12 @@ const IntroSection = () => {
           </div>
           
           {/* Static Heading */}
-          <h2 className="static-heading text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] font-medium mt-0 mb-3 leading-tight w-full text-left max-w-[870px] px-4 sm:px-0 mx-auto">
+          <h2 className="static-heading text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[4rem] font-medium mt-0 mb-3 leading-tight w-full text-left max-w-[870px] mx-auto">
             hello there
           </h2>
           
           {/* Tab Content */}
-          <div className="intro-content max-w-[870px] relative min-h-[400px] flex flex-col items-start justify-start w-full pb-8 md:pb-12 px-4 sm:px-0 mx-auto" style={{ overflow: 'hidden' }}>
+          <div className="intro-content max-w-[870px] relative min-h-[400px] flex flex-col items-start justify-start w-full pb-8 md:pb-12 mx-auto">
             <div className={`tab-content ${activeTab === 'for-anyone' && !fadingOut ? 'active' : ''} ${previousTab === 'for-anyone' && fadingOut ? 'fade-out' : ''}`}>
               <h3 className="text-3xl md:text-[3rem] font-medium mt-0 mb-1 leading-tight w-full text-left">
                 i&apos;m a QA engineer
