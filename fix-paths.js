@@ -39,7 +39,10 @@ function fixPaths(htmlFile) {
   content = content.replace(/\[\"link\",\"2\",\{[^\]]*\"favicon[^\]]*\]\]/g, '');
   content = content.replace(/\"favicon\.ico\"/g, '""');
   
-  // Direct string replacement for the specific favicon reference in the last script
+  // Fix multiline class attributes that cause JS parsing errors
+  // This regex finds class attributes with newlines and normalizes them
+  content = content.replace(/class="([^"]*)(\r?\n)(\s*)([^"]*)(\r?\n)(\s*)([^"]*)"/g, 'class="$1 $4 $7"');
+  
   // Use a simpler approach to avoid linter errors
   const faviconPattern = /\["link","2",\{"rel":"icon"[^\]]*\]\]/g;
   content = content.replace(faviconPattern, '');
