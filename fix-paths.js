@@ -29,12 +29,17 @@ function fixPaths(htmlFile) {
   console.log(`Processing: ${htmlFile}`);
   let content = fs.readFileSync(htmlFile, 'utf8');
   
-  // Replace paths for custom domain (remove '/personal-site' prefix if it exists)
-  content = content.replace(/\/personal-site\.\/_next\//g, './_next/');
-  content = content.replace(/\/personal-site\/_next\//g, './_next/');
+  // Replace paths for custom domain
+  // Remove any basePath prefixes
+  content = content.replace(/\/personal-site\.\/_next\//g, '/_next/');
+  content = content.replace(/\/personal-site\/_next\//g, '/_next/');
   
-  // Replace all occurrences of /_next/ with ./_next/ for relative paths
-  content = content.replace(/\/_next\//g, './_next/');
+  // For GitHub Pages with custom domain, use absolute paths
+  // Convert relative paths (./_next/) to absolute paths (/_next/)
+  content = content.replace(/\.\/_next\//g, '/_next/');
+  
+  // Keep absolute paths as they are
+  // content = content.replace(/\/_next\//g, '/_next/');
   
   // Remove favicon link tag from HTML
   content = content.replace(/<link rel="icon"[^>]*>/g, '');
