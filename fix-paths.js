@@ -29,7 +29,11 @@ function fixPaths(htmlFile) {
   console.log(`Processing: ${htmlFile}`);
   let content = fs.readFileSync(htmlFile, 'utf8');
   
-  // Replace all occurrences of /_next/ with ./_next/
+  // Replace paths for custom domain (remove '/personal-site' prefix if it exists)
+  content = content.replace(/\/personal-site\.\/_next\//g, './_next/');
+  content = content.replace(/\/personal-site\/_next\//g, './_next/');
+  
+  // Replace all occurrences of /_next/ with ./_next/ for relative paths
   content = content.replace(/\/_next\//g, './_next/');
   
   // Remove favicon link tag from HTML
