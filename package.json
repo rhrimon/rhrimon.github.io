@@ -2,9 +2,10 @@
   "name": "rimon-hasan-personal-site",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build && cp CNAME out/",
+    "build": "next build && cp CNAME out/ && node fix-paths.js",
     "start": "next start",
     "lint": "next lint"
   },
