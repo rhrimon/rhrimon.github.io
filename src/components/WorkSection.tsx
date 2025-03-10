@@ -7,7 +7,7 @@ const WorkSection = () => {
         <div className="flex flex-col items-center justify-center w-full">
           <div className="text-center w-full max-w-[500px]">
             <h2 className="text-[3.6rem] mb-0 font-semibold text-left">Poll Everywhere</h2>
-            <p className="text-base font-medium text-[#666564] mb-4 text-left">2021 - Current // Remote</p>
+            <p className="text-base font-medium text-[#666564] mb-4 text-left">2021 - 2024 // Remote</p>
             <p className="max-w-[500px] leading-relaxed mx-auto text-left">
               Led automation testing with Playwright (TypeScript) and RSpec (Ruby), integrated QA processes into the SDLC, and ensured WCAG accessibility compliance. Leveraged tools like Asana, Datadog, and Notion to reduce defects, enhance coverage, and streamline reporting across releases
             </p>
