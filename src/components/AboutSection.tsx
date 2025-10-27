@@ -17,8 +17,8 @@ const AboutSection = () => {
           </p>
           
           <p className="mb-0 text-base sm:text-lg font-light leading-relaxed text-left">
-            currently watching: severance<br />
-            currently playing: kingdom come deliverance II
+            currently watching: snowfall<br />
+            currently playing: arc raiders
           </p>
         </div>
       </div>
