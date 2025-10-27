@@ -151,9 +151,9 @@ const IntroSection = () => {
               <h3 className="text-3xl md:text-[3rem] font-medium mt-0 mb-1 leading-tight w-full text-left">
                 i&apos;m a QA engineer with over 10 years of experience in both manual and automated software testing
               </h3>
-              <h3 className="text-3xl md:text-[3rem] font-medium mt-0 mb-1 leading-tight w-full text-left">
-                i <span className="text-[#35C589]">am</span> currently looking for a new role
-              </h3>
+              {/* <h3 className="text-3xl md:text-[3rem] font-medium mt-0 mb-1 leading-tight w-full text-left"> */}
+                {/* i <span className="text-[#35C589]">am</span> currently looking for a new role */}
+              {/* </h3> */}
             </div>
             
             <div className={`tab-content ${activeTab === 'qa' && !fadingOut ? 'active' : ''} ${previousTab === 'qa' && fadingOut ? 'fade-out' : ''}`}>
