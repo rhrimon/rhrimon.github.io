@@ -33,6 +33,13 @@ body {
 
 .bg-blob {
   position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bg-blob-inner {
+  position: absolute;
   width: 100vmax;
   height: 100vmax;
   top: 130%;
@@ -49,8 +56,6 @@ body {
     transparent 72%
   );
   animation: lavaBlob 32s ease-in-out infinite alternate;
-  pointer-events: none;
-  z-index: -1;
   will-change: transform;
 }
 
