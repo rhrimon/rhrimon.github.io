@@ -637,7 +637,10 @@ body {
     padding: 0.38rem 0.86rem !important;
   }
   .values-body p {
-    font-size: 1.3rem !important;
+    font-size: 1.04rem !important;
+  }
+  .work-blurb {
+    font-size: 0.99rem !important;
   }
   .timeline-rail .line {
     height: 3rem;

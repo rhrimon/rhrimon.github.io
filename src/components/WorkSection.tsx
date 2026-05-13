@@ -69,6 +69,7 @@ const WorkSection = () => {
                   {r.dates} &nbsp;//&nbsp; {r.role} &nbsp;//&nbsp; {r.location}
                 </p>
                 <p
+                  className="work-blurb"
                   style={{
                     fontSize: '1.235rem',
                     lineHeight: 1.7,
