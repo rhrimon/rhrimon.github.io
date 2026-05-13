@@ -203,12 +203,14 @@ body::before {
     display: block;
     width: 100%;
     height: auto;
+    opacity: 0;
   }
   .hero-title-svg text {
     fill: #ffffff;
   }
   .hero-title-mobile {
     display: none;
+    opacity: 0;
     text-align: center;
     font-family: var(--font-geist), var(--font-inter), sans-serif;
     font-weight: 700;
@@ -499,7 +501,7 @@ body::before {
   }
   .timeline-rail .line {
     width: 1px;
-    height: 6rem;
+    height: 5rem;
     background: rgba(245, 233, 227, 0.18);
   }
   .timeline-rail .dot {
@@ -578,6 +580,9 @@ body::before {
   .values-body p {
     font-size: 1.3rem !important;
   }
+  .timeline-rail .line {
+    height: 3rem;
+  }
 }
 
 @keyframes soundFade {
@@ -588,6 +593,15 @@ body::before {
 @keyframes taglineFade {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.hero-title-fadein {
+  animation: heroFadeIn 1s ease forwards;
 }
 
 @keyframes fadeInUp {

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type TabId = 'for-anyone' | 'recruiters' | 'qa' | 'engineers' | 'designers' | 'product-managers';
 
@@ -30,6 +30,11 @@ const ChevronDown = () => (
 
 const IntroSection = () => {
   const [active, setActive] = useState<TabId>('for-anyone');
+  const [titleVisible, setTitleVisible] = useState(false);
+
+  useEffect(() => {
+    setTitleVisible(true);
+  }, []);
 
   return (
     <>
@@ -37,7 +42,7 @@ const IntroSection = () => {
       <section className="hero" aria-label="Rimon Hasan">
         {/* Desktop: single line edge-to-edge */}
         <svg
-          className="hero-title hero-title-svg hero-title-desktop"
+          className={`hero-title hero-title-svg hero-title-desktop${titleVisible ? ' hero-title-fadein' : ''}`}
           viewBox="0 0 1000 132"
           preserveAspectRatio="xMidYMid meet"
           aria-label="Rimon Hasan"
@@ -60,7 +65,7 @@ const IntroSection = () => {
         </svg>
 
         {/* Mobile: two lines, natural rendering */}
-        <div className="hero-title-mobile" aria-hidden="true">
+        <div className={`hero-title-mobile${titleVisible ? ' hero-title-fadein' : ''}`} aria-hidden="true">
           <div>RIMON</div>
           <div>HASAN</div>
         </div>
