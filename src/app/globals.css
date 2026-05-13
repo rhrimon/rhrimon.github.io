@@ -401,6 +401,10 @@ body::before {
   }
 
   /* Hamburger button — hidden on desktop, shown on mobile */
+  .topbar-section {
+    display: none;
+  }
+  /* Hamburger button — hidden on desktop, shown on mobile */
   .topbar-hamburger {
     display: none;
     flex-direction: column;
@@ -523,6 +527,28 @@ body::before {
   }
 }
 
+.mobile-back-top {
+  display: flex;
+  position: fixed;
+  bottom: 2rem;
+  right: 1.75rem;
+  z-index: 150;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.65);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.mobile-back-top svg {
+  width: 32px;
+  height: 32px;
+}
+.mobile-back-top--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 @media (max-width: 768px) {
   .hero-title-desktop {
     display: none;
@@ -555,6 +581,35 @@ body::before {
   }
   .topbar-hamburger {
     display: flex !important;
+  }
+  .topbar-section {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #ffffff;
+    opacity: 0.65;
+    white-space: nowrap;
+    animation: topbarSectionFade 0.3s ease-in-out;
+  }
+  .topbar-logo {
+    transition: opacity 0.3s ease;
+  }
+  .topbar-logo--hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  .mobile-back-top {
+    bottom: 1.75rem;
+    right: 1.25rem;
+  }
+  .mobile-back-top svg {
+    width: 25px;
+    height: 25px;
   }
   .intro-tabs {
     justify-content: flex-start;
@@ -593,6 +648,11 @@ body::before {
 @keyframes taglineFade {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@keyframes topbarSectionFade {
+  from { opacity: 0; }
+  to   { opacity: 0.65; }
 }
 
 @keyframes heroFadeIn {
