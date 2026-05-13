@@ -31,8 +31,7 @@ body {
   overflow-x: clip;
 }
 
-body::before {
-  content: '';
+.bg-blob {
   position: fixed;
   width: 100vmax;
   height: 100vmax;

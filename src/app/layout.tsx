@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${geist.variable}`}>
-      <body><Header /><div className="site-wrapper">{children}</div></body>
+      <body><div className="bg-blob" aria-hidden="true" /><Header /><div className="site-wrapper">{children}</div></body>
     </html>
   );
 }
