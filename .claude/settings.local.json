@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(test -d /Users/rimon/Documents/personal_site/.claude && echo \"exists\" || mkdir -p /Users/rimon/Documents/personal_site/.claude && echo \"created\")",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(sips -s format png src/app/favicon.ico --out /tmp/favicon-preview.png)",
+      "Bash(sips -s format png -z 256 256 /Users/rimon/Documents/personal_site/src/app/favicon.ico --out /tmp/logo-256.png)",
+      "Bash(sips -s format png -z 512 512 /Users/rimon/Documents/personal_site/src/app/favicon.ico --out /Users/rimon/Documents/personal_site/public/logo.png)",
+      "Bash(curl -s -o /tmp/check.png -w \"%{http_code}\\\\n\" http://localhost:3000/logo.png)",
+      "Bash(curl -s http://localhost:3000/logo.png -o /tmp/served-logo.png)",
+      "WebFetch(domain:www.charlieosborne.co)",
+      "Bash(curl -sL https://www.charlieosborne.co/ -o /tmp/charlie.html)",
+      "Bash(grep -oE 'background[^;\"}]{1,200}' /tmp/charlie.html)",
+      "Bash(grep -oE 'gradient\\\\\\([^\\)]{1,300}\\\\\\)' /tmp/charlie.html)",
+      "Bash(grep -oE 'src=\"[^\"]{1,80}\\\\.\\(mp4|webm|svg|png|jpg|webp\\)\"' /tmp/charlie.html)",
+      "Bash(find /Users/rimon/Documents -maxdepth 3 -name \"*.tsx\" -path \"*/Header*\" 2>/dev/null | grep -v personal_site && ls /Users/rimon/Documents)",
+      "Bash(ls /Users/rimon/Documents && ls /Users/rimon)"
+    ]
+  }
+}
