@@ -140,7 +140,7 @@ body {
     font-variant-numeric: tabular-nums;
     font-feature-settings: 'tnum' 1;
   }
-  .topbar-logo img {
+  .topbar-logo svg {
     width: 32px;
     height: 32px;
     display: block;
