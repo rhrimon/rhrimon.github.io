@@ -28,7 +28,7 @@ body {
 
 .site-wrapper {
   position: relative;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body::before {
