@@ -146,7 +146,6 @@ const Header = () => {
               {soundOn ? 'On' : 'Off'}
             </span>
           </button>
-          <div className="topbar-divider" />
         </div>
 
         <button

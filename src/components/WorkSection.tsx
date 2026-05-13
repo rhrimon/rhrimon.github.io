@@ -63,7 +63,7 @@ const WorkSection = () => {
                   {r.company}
                 </h3>
                 <p
-                  className="eyebrow"
+                  className="eyebrow work-eyebrow"
                   style={{ marginBottom: '1.2rem', color: 'var(--ink-dim)', fontSize: '0.91rem' }}
                 >
                   {r.dates} &nbsp;//&nbsp; {r.role} &nbsp;//&nbsp; {r.location}

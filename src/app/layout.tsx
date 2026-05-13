@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${geist.variable}`}>
-      <body>{children}</body>
+      <body><div className="site-wrapper">{children}</div></body>
     </html>
   );
 }
